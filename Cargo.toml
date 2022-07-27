@@ -1,0 +1,27 @@
+[package]
+authors = ["Mayckon Giovani <mayckonrlyeh@gmail.com>"]
+description = ""
+license-file = "LICENSE"
+name = "generador-pdf"
+readme = ""
+repository = ""
+version = "0.0.1"
+
+[dependencies]
+docopt = "*"
+fern = "0.3.*"
+formdata = "*"
+iron = "*"
+log = "0.3.*"
+mount = "*"
+router = "*"
+rust-crypto = "*"
+rustc-serialize = "*"
+staticfile = "*"
+time = "*"
+
+#[dependencies.clippy]
+#git = "https://github.com/Manishearth/rust-clippy"
+
+[dependencies.params]
+git = "https://github.com/iron/params.git"
