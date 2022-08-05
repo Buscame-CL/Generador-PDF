@@ -33,12 +33,6 @@ dependencies = [
 
 [[package]]
 name = "bitflags"
-version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "65fee84cb17ca0b1f86b3870caad42a966b58366caed5a1651c6eb7f415ac545"
-
-[[package]]
-name = "bitflags"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "aad18937a628ec6abcd26d1489012cc0e18c21798210f491af69ded9b881106d"
@@ -84,23 +78,11 @@ dependencies = [
 
 [[package]]
 name = "cookie"
-version = "0.1.21"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "02443c47d5c80f9b4be9b8f51c0bf307d663fe28b18ccabef44d8b0a4b2a967b"
-dependencies = [
- "openssl 0.6.4",
- "rustc-serialize",
- "time 0.1.44",
- "url 0.2.37",
-]
-
-[[package]]
-name = "cookie"
 version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0e3d6405328b6edb412158b3b7710e2634e23f3614b9bb1c412df7952489a626"
 dependencies = [
- "openssl 0.7.14",
+ "openssl",
  "rustc-serialize",
  "time 0.1.44",
  "url 1.7.2",
@@ -123,7 +105,7 @@ version = "0.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "aa18f32e8cb5262901fe4fd9ea0d44607b029605a6e0a84bcdf97e70539c7b4a"
 dependencies = [
- "traitobject 0.0.3",
+ "traitobject 0.1.0",
  "typeable",
 ]
 
@@ -142,11 +124,11 @@ version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1e46916ad56e0e5b8466760c4d388625b50e3ece297ecf44f845d89a033ab4b1"
 dependencies = [
- "httparse 0.1.6",
- "hyper 0.6.11",
+ "httparse",
+ "hyper 0.10.16",
  "libc 0.2.126",
  "log 0.4.17",
- "mime 0.1.0",
+ "mime 0.2.6",
  "tempdir",
  "textnonce",
 ]
@@ -209,37 +191,9 @@ dependencies = [
 
 [[package]]
 name = "httparse"
-version = "0.1.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6347d7d25dafc348f31160473fa847bf9c56a41e57306315eae543b75411596f"
-
-[[package]]
-name = "httparse"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "496ce29bb5a52785b44e0f7ca2847ae0bb839c9bd28f69acac9b99d461c0c04c"
-
-[[package]]
-name = "hyper"
-version = "0.6.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "db2afec822e13ee0ac59d5bff13f0468d9288b90ded1d9a4afdecfd520e53b69"
-dependencies = [
- "cookie 0.1.21",
- "httparse 0.1.6",
- "language-tags 0.0.7",
- "log 0.3.2",
- "mime 0.1.0",
- "num_cpus 0.2.6",
- "openssl 0.6.4",
- "rustc-serialize",
- "solicit",
- "time 0.1.44",
- "traitobject 0.0.1",
- "typeable",
- "unicase",
- "url 0.2.37",
-]
 
 [[package]]
 name = "hyper"
@@ -247,13 +201,13 @@ version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fa426d9b72a11926b7dbc1667fa3dc81a58e0bb9a65e4944dea68ea8dc18da36"
 dependencies = [
- "cookie 0.2.5",
- "httparse 1.7.1",
- "language-tags 0.2.2",
+ "cookie",
+ "httparse",
+ "language-tags",
  "log 0.3.2",
  "mime 0.1.0",
  "num_cpus 0.2.6",
- "openssl 0.7.14",
+ "openssl",
  "rustc-serialize",
  "solicit",
  "time 0.1.44",
@@ -270,8 +224,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0a0652d9a2609a968c14be1a9ea00bf4b1d64e2e1f53a1b51b6fff3a6e829273"
 dependencies = [
  "base64",
- "httparse 1.7.1",
- "language-tags 0.2.2",
+ "httparse",
+ "language-tags",
  "log 0.3.2",
  "mime 0.2.6",
  "num_cpus 1.13.1",
@@ -337,12 +291,6 @@ checksum = "258451ab10b34f8af53416d1fdab72c22e805f0c92a1136d59470ec0b11138b2"
 dependencies = [
  "wasm-bindgen",
 ]
-
-[[package]]
-name = "language-tags"
-version = "0.0.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41633f9c0d99840437d1f2073c0a6dadcf1dbd28b87dda956e3d91b65f6e57a7"
 
 [[package]]
 name = "language-tags"
@@ -497,40 +445,16 @@ checksum = "18a6dbe30758c9f83eb00cbea4ac95966305f5a7772f3f42ebfc7fc7eddbd8e1"
 
 [[package]]
 name = "openssl"
-version = "0.6.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ea1ef6cb5a27deb5bc06652f5de4ccb1b9b4d4c651819b68d06f790af579afe"
-dependencies = [
- "bitflags 0.3.2",
- "lazy_static 0.1.14",
- "libc 0.1.10",
- "openssl-sys 0.6.4",
-]
-
-[[package]]
-name = "openssl"
 version = "0.7.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c4117b6244aac42ed0150a6019b4d953d28247c5dd6ae6f46ae469b5f2318733"
 dependencies = [
- "bitflags 0.7.0",
+ "bitflags",
  "gcc",
  "lazy_static 0.2.11",
  "libc 0.2.126",
- "openssl-sys 0.7.17",
+ "openssl-sys",
  "openssl-sys-extras",
-]
-
-[[package]]
-name = "openssl-sys"
-version = "0.6.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2dfafaedab57a3f52868dec92eb565b23a0d0a28f8a4cb60a43185f67d7f30fd"
-dependencies = [
- "gcc",
- "libc 0.1.10",
- "libressl-pnacl-sys",
- "pkg-config",
 ]
 
 [[package]]
@@ -554,7 +478,7 @@ checksum = "11c5e1dba7d3d03d80f045bf0d60111dc69213b67651e7c889527a3badabb9fa"
 dependencies = [
  "gcc",
  "libc 0.2.126",
- "openssl-sys 0.7.17",
+ "openssl-sys",
 ]
 
 [[package]]
@@ -688,9 +612,9 @@ dependencies = [
 
 [[package]]
 name = "rustc-serialize"
-version = "0.3.16"
+version = "0.3.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1a48546a64cae47d06885e9bccadb99d0547d877a94c5167fa451ea33a484456"
+checksum = "dcf128d1287d2ea9d80910b5f1120d0b8eede3fbf1abe91c40d39ea7d51e6fda"
 
 [[package]]
 name = "safemem"
@@ -808,12 +732,6 @@ checksum = "07eaeb7689bb7fca7ce15628319635758eda769fed481ecfe6686ddef2600616"
 
 [[package]]
 name = "traitobject"
-version = "0.0.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9dc23794ff47c95882da6f9d15de9a6be14987760a28cc0aafb40b7675ef09d8"
-
-[[package]]
-name = "traitobject"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "efd1f82c56340fdf16f2a953d7bda4f8fdffba13d93b00844c25572110b26079"
@@ -875,7 +793,7 @@ version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b351086021ebc264aea3ab4f94d61d889d98e5e9ec2d985d993f50133537fd3a"
 dependencies = [
- "traitobject 0.0.3",
+ "traitobject 0.1.0",
 ]
 
 [[package]]
@@ -921,7 +839,7 @@ dependencies = [
  "bodyparser",
  "iron 0.5.1",
  "plugin",
- "url 0.2.37",
+ "url 1.7.2",
 ]
 
 [[package]]
