@@ -9,7 +9,7 @@ version = "0.0.1"
 
 [dependencies]
 docopt = "*"
-fern = "0.3.*"
+fern = "0.6.*"
 formdata = "*"
 iron = "*"
 log = "0.3.*"
