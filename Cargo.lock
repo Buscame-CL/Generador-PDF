@@ -18,7 +18,7 @@ version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "00b4afd4decb1f55389ef9117a738235592d19f3ab0bef1a34aac6b41635f12a"
 dependencies = [
- "memchr",
+ "memchr 0.1.6",
 ]
 
 [[package]]
@@ -43,7 +43,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "489d6c0ed21b11d038c31b6ceccca973e65d73ba3bd8ecb9a2babf5546164643"
 dependencies = [
  "byteorder",
- "safemem",
+ "safemem 0.3.3",
 ]
 
 [[package]]
@@ -60,14 +60,25 @@ checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
 
 [[package]]
 name = "bodyparser"
-version = "0.0.6"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78c280275d396472fb2f4f4bbeb88a7fa9dc45403e9b290e2a5cbf12a1354c47"
+checksum = "f023abfa58aad6f6bc4ae0630799e24d5ee0ab8bb2e49f651d9b1f9aa4f52f30"
 dependencies = [
- "iron 0.5.1",
+ "iron 0.6.1",
  "persistent",
  "plugin",
- "rustc-serialize",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "buf_redux"
+version = "0.6.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b9279646319ff816b05fb5897883ece50d7d854d12b59992683d4f8a71b0f949"
+dependencies = [
+ "memchr 1.0.2",
+ "safemem 0.2.0",
 ]
 
 [[package]]
@@ -196,7 +207,7 @@ dependencies = [
  "docopt",
  "fern",
  "formdata",
- "iron 0.5.1",
+ "iron 0.6.1",
  "log 0.3.2",
  "mount 0.0.9",
  "params",
@@ -303,24 +314,6 @@ dependencies = [
 
 [[package]]
 name = "iron"
-version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2440ae846e7a8c7f9b401db8f6e31b4ea5e7d3688b91761337da7e054520c75b"
-dependencies = [
- "conduit-mime-types",
- "error",
- "hyper 0.10.16",
- "lazy_static 0.2.11",
- "log 0.3.2",
- "modifier",
- "num_cpus 1.13.1",
- "plugin",
- "typemap",
- "url 1.7.2",
-]
-
-[[package]]
-name = "iron"
 version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c6d308ca2d884650a8bf9ed2ff4cb13fbb2207b71f64cda11dc9b892067295e8"
@@ -334,6 +327,12 @@ dependencies = [
  "typemap",
  "url 1.7.2",
 ]
+
+[[package]]
+name = "itoa"
+version = "1.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6c8af84674fe1f223a982c933a0ee1086ac4d4052aa0fb8060c12c6ad838e754"
 
 [[package]]
 name = "js-sys"
@@ -417,6 +416,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "memchr"
+version = "1.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "148fab2e51b4f1cfc66da2a7c32981d1d3c083a803978268bb11fe4b86925e7a"
+dependencies = [
+ "libc 0.2.126",
+]
+
+[[package]]
+name = "memchr"
+version = "2.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
+
+[[package]]
 name = "mime"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -471,6 +485,23 @@ checksum = "e25c06012941aaf8c75f2eaf7ec5c48cf69f9fc489ab3eb3589edc107e386f0b"
 dependencies = [
  "iron 0.6.1",
  "sequence_trie 0.3.6",
+]
+
+[[package]]
+name = "multipart"
+version = "0.13.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "92f54eb45230c3aa20864ccf0c277eeaeadcf5e437e91731db498dbf7fbe0ec6"
+dependencies = [
+ "buf_redux",
+ "httparse",
+ "log 0.3.2",
+ "mime 0.2.6",
+ "mime_guess",
+ "rand 0.3.11",
+ "safemem 0.2.0",
+ "tempdir",
+ "twoway",
 ]
 
 [[package]]
@@ -557,15 +588,16 @@ dependencies = [
 
 [[package]]
 name = "params"
-version = "0.0.1"
-source = "git+https://github.com/iron/params.git#78f025f298d12543a9890e8e7902b7073a63d8da"
+version = "0.8.0"
+source = "git+https://github.com/iron/params.git#ba3ebf8390bc60d8d54f05d7de45d3abe93f3459"
 dependencies = [
  "bodyparser",
- "formdata",
- "iron 0.5.1",
+ "iron 0.6.1",
+ "multipart",
  "num",
  "plugin",
- "rustc-serialize",
+ "serde_json",
+ "tempdir",
  "urlencoded",
 ]
 
@@ -577,11 +609,11 @@ checksum = "31010dd2e1ac33d5b46a5b413495239882813e0369f8ed8a5e266f173602f831"
 
 [[package]]
 name = "persistent"
-version = "0.0.7"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b986b332bcfe53d59732601a542bd09978fcd7f5eb85c3c7965f62a2ad637256"
+checksum = "8e8fa0009c4f3d350281309909c618abddf10bb7e3145f28410782f6a5ec74c5"
 dependencies = [
- "iron 0.2.6",
+ "iron 0.6.1",
  "plugin",
 ]
 
@@ -799,7 +831,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4499ef755e709fbfe334ecbc3206537e84952ead5347791b0f54c2b75fe63a28"
 dependencies = [
  "aho-corasick",
- "memchr",
+ "memchr 0.1.6",
  "regex-syntax",
 ]
 
@@ -833,7 +865,7 @@ checksum = "fa2fc1f947e9d2c0dfca3b02921920f5ba9065aa6a7257ca7c5b1b272a8e2826"
 dependencies = [
  "gcc",
  "libc 0.2.126",
- "rand 0.3.11",
+ "rand 0.6.5",
  "rustc-serialize",
  "time 0.3.12",
 ]
@@ -843,6 +875,18 @@ name = "rustc-serialize"
 version = "0.3.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dcf128d1287d2ea9d80910b5f1120d0b8eede3fbf1abe91c40d39ea7d51e6fda"
+
+[[package]]
+name = "ryu"
+version = "1.0.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4501abdff3ae82a1c1b477a17252eb69cee9e66eb915c1abaa4f44d873df9f09"
+
+[[package]]
+name = "safemem"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e27a8b19b835f7aea908818e871f5cc3a5a186550c30773be987e155e8163d8f"
 
 [[package]]
 name = "safemem"
@@ -861,6 +905,23 @@ name = "sequence_trie"
 version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1ee22067b7ccd072eeb64454b9c6e1b33b61cd0d49e895fd48676a184580e0c3"
+
+[[package]]
+name = "serde"
+version = "1.0.142"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e590c437916fb6b221e1d00df6e3294f3fccd70ca7e92541c475d6ed6ef5fee2"
+
+[[package]]
+name = "serde_json"
+version = "1.0.83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "38dd04e3c8279e75b31ef29dbdceebfe5ad89f4d0937213c53f7d49d01b3d5a7"
+dependencies = [
+ "itoa",
+ "ryu",
+ "serde",
+]
 
 [[package]]
 name = "siphasher"
@@ -884,7 +945,7 @@ version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "babd3fa68bb7e3994ce181c5f21ff3ff5fffef7b18b8a10163b45e4dafc6fb86"
 dependencies = [
- "iron 0.5.1",
+ "iron 0.6.1",
  "mount 0.4.0",
  "time 0.1.44",
  "url 1.7.2",
@@ -922,7 +983,7 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06f613d314ea2559cbe4bef37ebcb40f304c11700b6403f9bb5bdd579607f6b5"
 dependencies = [
- "rand 0.3.11",
+ "rand 0.6.5",
  "rustc-serialize",
  "time 0.3.12",
 ]
@@ -975,6 +1036,15 @@ name = "traitobject"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "efd1f82c56340fdf16f2a953d7bda4f8fdffba13d93b00844c25572110b26079"
+
+[[package]]
+name = "twoway"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59b11b2b5241ba34be09c3cc85a36e56e48f9888862e19cedf23336d35316ed1"
+dependencies = [
+ "memchr 2.5.0",
+]
 
 [[package]]
 name = "typeable"
@@ -1075,12 +1145,12 @@ dependencies = [
 
 [[package]]
 name = "urlencoded"
-version = "0.2.0"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "18e0d81033da642f5bbbe0e0bfe5db2965277ee1be706b988d0639621e19f88b"
+checksum = "0a52f50139118b60ae91af08bf15ed158817d34b91b9d24c11ffbe21195d33e3"
 dependencies = [
  "bodyparser",
- "iron 0.5.1",
+ "iron 0.6.1",
  "plugin",
  "url 1.7.2",
 ]
