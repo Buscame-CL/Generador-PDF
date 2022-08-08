@@ -64,7 +64,7 @@ version = "0.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "78c280275d396472fb2f4f4bbeb88a7fa9dc45403e9b290e2a5cbf12a1354c47"
 dependencies = [
- "iron 0.5.1",
+ "iron 0.6.1",
  "persistent",
  "plugin",
  "rustc-serialize",
@@ -141,11 +141,11 @@ dependencies = [
 
 [[package]]
 name = "fern"
-version = "0.3.5"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4d2f58d053ad7791bfaad58a3f3541fe2d2aecc564dd82aee7f92fa402c054b2"
+checksum = "3bdd7b0849075e79ee9a1836df22c717d1eba30451796fdc631b04565dd11e2a"
 dependencies = [
- "log 0.3.2",
+ "log 0.4.17",
 ]
 
 [[package]]
@@ -196,9 +196,9 @@ dependencies = [
  "docopt",
  "fern",
  "formdata",
- "iron 0.5.1",
+ "iron 0.6.1",
  "log 0.3.2",
- "mount 0.0.9",
+ "mount",
  "params",
  "router",
  "rust-crypto",
@@ -299,24 +299,6 @@ dependencies = [
  "plugin",
  "typemap",
  "url 0.5.10",
-]
-
-[[package]]
-name = "iron"
-version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2440ae846e7a8c7f9b401db8f6e31b4ea5e7d3688b91761337da7e054520c75b"
-dependencies = [
- "conduit-mime-types",
- "error",
- "hyper 0.10.16",
- "lazy_static 0.2.11",
- "log 0.3.2",
- "modifier",
- "num_cpus 1.13.1",
- "plugin",
- "typemap",
- "url 1.7.2",
 ]
 
 [[package]]
@@ -454,23 +436,12 @@ checksum = "41f5c9112cb662acd3b204077e0de5bc66305fa8df65c8019d5adb10e9ab6e58"
 
 [[package]]
 name = "mount"
-version = "0.0.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c55c3e1b8c0804d450c6c74df19e6469caadfbb4930dfa3b237e4b03aea66aaf"
-dependencies = [
- "iron 0.2.6",
- "sequence_trie 0.0.13",
- "url 0.2.37",
-]
-
-[[package]]
-name = "mount"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e25c06012941aaf8c75f2eaf7ec5c48cf69f9fc489ab3eb3589edc107e386f0b"
 dependencies = [
  "iron 0.6.1",
- "sequence_trie 0.3.6",
+ "sequence_trie",
 ]
 
 [[package]]
@@ -562,7 +533,7 @@ source = "git+https://github.com/iron/params.git#78f025f298d12543a9890e8e7902b70
 dependencies = [
  "bodyparser",
  "formdata",
- "iron 0.5.1",
+ "iron 0.6.1",
  "num",
  "plugin",
  "rustc-serialize",
@@ -833,7 +804,7 @@ checksum = "fa2fc1f947e9d2c0dfca3b02921920f5ba9065aa6a7257ca7c5b1b272a8e2826"
 dependencies = [
  "gcc",
  "libc 0.2.126",
- "rand 0.3.11",
+ "rand 0.6.5",
  "rustc-serialize",
  "time 0.3.12",
 ]
@@ -849,12 +820,6 @@ name = "safemem"
 version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ef703b7cb59335eae2eb93ceb664c0eb7ea6bf567079d843e09420219668e072"
-
-[[package]]
-name = "sequence_trie"
-version = "0.0.13"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d5b4eb0f7d1ff9b9666d8b8ff543f3705dd464025269a5b0e1988ffa60ca1be8"
 
 [[package]]
 name = "sequence_trie"
@@ -884,8 +849,8 @@ version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "babd3fa68bb7e3994ce181c5f21ff3ff5fffef7b18b8a10163b45e4dafc6fb86"
 dependencies = [
- "iron 0.5.1",
- "mount 0.4.0",
+ "iron 0.6.1",
+ "mount",
  "time 0.1.44",
  "url 1.7.2",
 ]
@@ -922,7 +887,7 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06f613d314ea2559cbe4bef37ebcb40f304c11700b6403f9bb5bdd579607f6b5"
 dependencies = [
- "rand 0.3.11",
+ "rand 0.6.5",
  "rustc-serialize",
  "time 0.3.12",
 ]
@@ -1041,16 +1006,6 @@ dependencies = [
 
 [[package]]
 name = "url"
-version = "0.2.37"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8418be6f06480ae5242d656575a7f369b0cd0ee992e8e8f4a6610f64b3a6d911"
-dependencies = [
- "matches",
- "rustc-serialize",
-]
-
-[[package]]
-name = "url"
 version = "0.5.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4a3440c1ed62af4a2aee71c6fb78ef32ddcb75cfa24bf42f45e07c02b6d6a2f6"
@@ -1080,7 +1035,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "18e0d81033da642f5bbbe0e0bfe5db2965277ee1be706b988d0639621e19f88b"
 dependencies = [
  "bodyparser",
- "iron 0.5.1",
+ "iron 0.6.1",
  "plugin",
  "url 1.7.2",
 ]
